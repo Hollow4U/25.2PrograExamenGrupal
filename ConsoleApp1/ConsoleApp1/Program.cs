@@ -10,13 +10,15 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Board board = new Board();
+           /* Board board = new Board();
             Pieces p1 = new Pieces(true, 3, 0, 0);
             board._cells[1, 0].Add(p1);
-            board.Display();
+            //board.Display();
             p1.Move(board, 2, 1);
             Console.WriteLine($"Ficha en: fila {p1.Row}, columna {p1.Column}");
-            Console.ReadLine();
+            Console.ReadLine();*/
+            Game game = new Game();
+            game.Turn();
         }
     }
 }

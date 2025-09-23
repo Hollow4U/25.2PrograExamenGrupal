@@ -8,13 +8,14 @@ namespace ConsoleApp1
 {
     class Game
     {
+        List<Pieces> startPieces = new List<Pieces>();
+        List<Pieces> piecesWithMovement = new List<Pieces>();
 
 
-
-
-            bool turn = true;
+        bool turn = true;
         public void Turn()
         {
+            CreateListStartPieces();
             while (turn)
             {
                 ChooseAction();
@@ -46,6 +47,7 @@ namespace ConsoleApp1
                     turn = false;
                     break;
                 default:
+                    Console.WriteLine("Opción no válida");
                     break;
             }
         }
@@ -61,7 +63,24 @@ namespace ConsoleApp1
                 switch (moveOption)
                 {
                     case "1":
+                        CreateListPiecesWithMovements();
+                        for(int i = 0; i < piecesWithMovement.Count; i++)
+                        {
+                            Console.WriteLine($"{i}. {piecesWithMovement[i].name} está en la posición {piecesWithMovement[i].Row}" +
+                                $" {piecesWithMovement[i].Column} y tiene {piecesWithMovement[i].movement} movimientos");
+                        }
+                        Console.WriteLine("Escoja su ficha");
+                        Console.ReadLine();
+                        try
+                        {
 
+                        }
+                        catch
+                        {
+
+                        }
+                        Board board = new Board();
+                        //p1.Move(board, 2, 1);
                         break;
                     case "2":
                         selectionPiece = false;
@@ -71,5 +90,51 @@ namespace ConsoleApp1
                 }
             }
         }
+
+        void CreateListStartPieces()
+        {
+            Pieces p1 = new Pieces(true, 3, 0, 0, "ficha1");
+            Pieces p2 = new Pieces(true, 3, 0, 0, "ficha2");
+            Pieces p3 = new Pieces(true, 3, 0, 1, "ficha3");
+            Pieces p4 = new Pieces(true, 3, 1, 0, "ficha4");
+            startPieces.Add(p1);
+            startPieces.Add(p2);
+            startPieces.Add(p3);
+            startPieces.Add(p4);
+
+        }
+        void CreateListPiecesWithMovements()
+        {            
+            foreach (Pieces piece in startPieces)
+            {
+                if(piece.movement > 0)
+                {
+                    piecesWithMovement.Add(piece);
+                }
+                else
+                {
+                    piecesWithMovement.Remove(piece);
+                }
+            }
+        }
+        /*private List<Pieces> GetAllEnemyPieces()
+        {
+            List<Pieces> enemies = new List<Pieces>();
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    foreach (object obj in _board._cells[i, j])
+                    {
+                        Pieces piece = obj as Pieces;
+                        if (piece != null && !piece.ally)
+                        {
+                            enemies.Add(piece);
+                        }
+                    }
+                }
+            }
+            return enemies;
+        }*/
     }
 }

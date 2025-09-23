@@ -9,15 +9,16 @@ namespace ConsoleApp1
     internal class Pieces
     {
         bool ally;
-        int movement = 3;
-
+        internal int movement = 3;
+        internal string name;
         public int Row {  get; set; }
         public int Column { get; set; }
        
-        internal Pieces(bool ally, int movement, int startRow, int startCol)
+        internal Pieces(bool ally, int movement, int startRow, int startCol, string name)
         {
             this.ally = ally;
             this.movement = movement;
+            this.name = name;
             Row = startRow;
             Column = startCol;
         }
