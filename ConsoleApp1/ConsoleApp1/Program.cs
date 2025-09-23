@@ -10,8 +10,10 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Board board = new Board();
-            board.Display();
+            /*Board board = new Board();
+            board.Display();*/
+            Game game = new Game();
+            game.Turn();
             Console.ReadLine();
         }
     }
