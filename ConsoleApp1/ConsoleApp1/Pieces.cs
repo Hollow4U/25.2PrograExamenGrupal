@@ -8,8 +8,8 @@ namespace ConsoleApp1
 {
     internal class Pieces
     {
-        bool ally;
-        int movement = 3;
+    internal bool ally;
+    internal int movement = 3;
 
         public int Row {  get; set; }
         public int Column { get; set; }

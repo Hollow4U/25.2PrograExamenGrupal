@@ -48,7 +48,38 @@ namespace ConsoleApp1
                 Console.Write($"{_rowLabels[i],3}");
                 for (int j = 0; j < Columns; j++)
                 {
-                    Console.Write("[ ]");
+                    int allyCount = 0;
+                    int enemyCount = 0;
+                    foreach (object obj in _cells[i, j])
+                    {
+                        Pieces piece = obj as Pieces;
+                        if (piece != null)
+                        {
+                            var type = typeof(Pieces);
+                            var allyField = type.GetField("ally", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+                            bool isAlly = (bool)allyField.GetValue(piece);
+                            if (isAlly)
+                                allyCount++;
+                            else
+                                enemyCount++;
+                        }
+                    }
+                    if (allyCount > 0 && enemyCount > 0)
+                    {
+                        Console.Write($"[A{allyCount}E{enemyCount}]");
+                    }
+                    else if (allyCount > 0)
+                    {
+                        Console.Write(allyCount == 1 ? "[A]" : $"[A{allyCount}]");
+                    }
+                    else if (enemyCount > 0)
+                    {
+                        Console.Write(enemyCount == 1 ? "[E]" : $"[E{enemyCount}]");
+                    }
+                    else
+                    {
+                        Console.Write("[ ]");
+                    }
                 }
                 Console.WriteLine();
             }
