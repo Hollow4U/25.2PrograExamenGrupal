@@ -40,11 +40,71 @@ namespace ConsoleApp1
                         ai.TakeTurn();
                         Console.WriteLine($"\nBoard after enemy turn {t}:");
                         board.Display();
+                        Combat();
                     }
                     ResetMovement();
                     turn = true;
                 }
             }
+        // Combat function: checks for cells with both ally and enemy pieces, performs dice combat, removes losing pieces
+        void Combat()
+        {
+            Random rand = new Random();
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    List<Pieces> allies = new List<Pieces>();
+                    List<Pieces> enemies = new List<Pieces>();
+                    foreach (object obj in board._cells[i, j])
+                    {
+                        Pieces piece = obj as Pieces;
+                        if (piece != null)
+                        {
+                            if (piece.ally)
+                                allies.Add(piece);
+                            else
+                                enemies.Add(piece);
+                        }
+                    }
+                    if (allies.Count > 0 && enemies.Count > 0)
+                    {
+                        bool combatResolved = false;
+                        while (!combatResolved)
+                        {
+                            int allySum = 0;
+                            int enemySum = 0;
+                            foreach (var a in allies)
+                                allySum += rand.Next(1, 7); // d6 per ally
+                            foreach (var e in enemies)
+                                enemySum += rand.Next(1, 7); // d6 per enemy
+                            Console.WriteLine($"Combat at cell ({i},{j}): Ally {allySum} vs Enemy {enemySum}");
+                            if (allySum > enemySum)
+                            {
+                                // Remove all enemy pieces from cell
+                                foreach (var e in enemies)
+                                    board._cells[i, j].Remove(e);
+                                Console.WriteLine($"Allies win at ({i},{j})!");
+                                combatResolved = true;
+                            }
+                            else if (enemySum > allySum)
+                            {
+                                // Remove all ally pieces from cell
+                                foreach (var a in allies)
+                                    board._cells[i, j].Remove(a);
+                                Console.WriteLine($"Enemies win at ({i},{j})!");
+                                combatResolved = true;
+                            }
+                            else
+                            {
+                                Console.WriteLine($"Tie at ({i},{j}), rolling again...");
+                                // Tie, repeat
+                            }
+                        }
+                    }
+                }
+            }
+        }
             
         }
         public void Turn()
