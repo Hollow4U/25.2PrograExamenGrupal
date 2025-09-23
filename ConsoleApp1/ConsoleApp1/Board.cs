@@ -7,11 +7,13 @@ namespace ConsoleApp1
     {
         private const int Rows = 10;
         private const int Columns = 10;
-        private List<object>[,] _cells;
+
+        internal List<object>[,] _cells { get; private set; }
+        
         private string[] _rowLabels;
         private string[] _columnLabels;
 
-        public Board()
+        internal Board()
         {
             _cells = new List<object>[Rows, Columns];
             for (int i = 0; i < Rows; i++)
@@ -33,7 +35,7 @@ namespace ConsoleApp1
             }
         }
 
-        public void Display()
+        internal void Display()
         {
             Console.Write("   ");
             for (int j = 0; j < Columns; j++)
@@ -50,6 +52,16 @@ namespace ConsoleApp1
                 }
                 Console.WriteLine();
             }
+        }
+
+        internal bool MovePiece(Pieces piece, int oldRow, int oldCol, int newRow, int newCol)
+        {
+            if (newRow < 0 || newRow >= _cells.GetLength(0) || newCol < 0 || newCol >= _cells.GetLength(0)) return false;
+
+            _cells[oldRow, oldCol].Remove(piece);
+            _cells[newRow, newCol].Add(piece);
+
+            return true;
         }
     }
 }
