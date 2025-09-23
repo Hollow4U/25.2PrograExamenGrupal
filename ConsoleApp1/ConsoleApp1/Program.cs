@@ -18,7 +18,7 @@ namespace ConsoleApp1
             Console.WriteLine($"Ficha en: fila {p1.Row}, columna {p1.Column}");
             Console.ReadLine();*/
             Game game = new Game();
-            game.Turn();
+            game.StartGame();
         }
     }
 }
