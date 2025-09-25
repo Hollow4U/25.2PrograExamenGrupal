@@ -14,6 +14,22 @@ namespace ConsoleApp1
             _random = new Random();
         }
 
+        public Board Board
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        internal Game Game
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         internal void TakeTurn()
         {
             List<Pieces> enemyPieces = GetAllEnemyPieces();

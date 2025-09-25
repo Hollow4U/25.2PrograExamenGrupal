@@ -13,7 +13,23 @@ namespace ConsoleApp1
         internal string name;
         public int Row {  get; set; }
         public int Column { get; set; }
-       
+
+        public Board Board
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        internal Game Game
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         internal Pieces(bool ally, int movement, int startRow, int startCol, string name)
         {
             this.ally = ally;

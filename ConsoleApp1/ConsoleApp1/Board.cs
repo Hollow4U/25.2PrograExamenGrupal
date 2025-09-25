@@ -94,5 +94,29 @@ namespace ConsoleApp1
 
             return true;
         }
+
+        internal Pieces Pieces
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        internal EnemyAI EnemyAI
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        internal Game Game
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

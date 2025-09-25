@@ -1,35 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ConsoleApp1.Board">
-    <Position X="4.5" Y="0.5" Width="1.5" />
+    <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEABAEAACQAAAAAAAAAAAAAAAAgIAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAEAEABAEAACQAAAAgAAAAAAAAAIAgIAAA=</HashCode>
       <FileName>Board.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Pieces" />
+      <Property Name="EnemyAI" />
+      <Property Name="Game" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="ConsoleApp1.EnemyAI">
     <Position X="8" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAEAABAAAAAAEAAAAAABAAAEgAAAAAAAgAABAAE=</HashCode>
+      <HashCode>AAAAAAEAABAAAAAAEAAAAAABAAgEgAAAAAAAgCABAAE=</HashCode>
       <FileName>EnemyAI.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Board" />
+      <Property Name="Game" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="ConsoleApp1.Game">
-    <Position X="1" Y="0.5" Width="1.5" />
+    <Position X="5.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CCAAAgAAAAABAIIAAAACASAgAAEgAgACoAARAAAAQAA=</HashCode>
+      <HashCode>CCAAAwAAAAABAIIAAAACASAgAAEgAgACoAARAAAAQAA=</HashCode>
       <FileName>Game.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Program" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="ConsoleApp1.Pieces">
-    <Position X="6.25" Y="0.5" Width="1.5" />
+    <Position X="3.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAEAAAAAABAAAAAAAAEAgAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAEAAAAAABAAAAAAAgEAgAAAAAAACAAAAA=</HashCode>
       <FileName>Pieces.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Board" />
+      <Property Name="Game" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="ConsoleApp1.Program">
-    <Position X="2.75" Y="0.5" Width="1.5" />
+    <Position X="10" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>

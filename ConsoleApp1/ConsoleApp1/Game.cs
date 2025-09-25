@@ -20,7 +20,15 @@ namespace ConsoleApp1
 
         bool turn = true;
         EnemyAI ai = new EnemyAI(board);
-            
+
+        internal Program Program
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public void StartGame()
         {
             CreateListStartPieces();
